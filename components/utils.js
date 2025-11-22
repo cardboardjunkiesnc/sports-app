@@ -1,0 +1,1 @@
+export function navigateTo(path) { location.hash = path.startsWith('#') ? path : '#' + path; }

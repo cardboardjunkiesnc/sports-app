@@ -1,10 +1,38 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
   <head>
-    <title>Sports App</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Cardboard Junkies — Full Starter</title>
+    <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
-    <h1>Welcome to Sports App</h1>
-    <p>Your AI-powered sports card marketplace will go here.</p>
+    <a class="skip-link" href="#app">Skip to content</a>
+
+    <!-- Simple header with big title -->
+    <header class="simple-header" role="banner">
+      <div class="container">
+        <h1 class="brand">Cardboard Junkies</h1>
+      </div>
+    </header>
+
+    <div id="site">
+      <header id="header" role="banner">
+        <div class="container header-inner">
+          <h1 class="brand"><a href="#/home">Cardboard Junkies</a></h1>
+          <nav id="nav" role="navigation" aria-label="Main navigation"></nav>
+        </div>
+      </header>
+
+      <main id="app" class="container" role="main" aria-live="polite" tabindex="-1">
+        <!-- Views are mounted here -->
+      </main>
+
+      <footer id="footer" class="container">
+        <small>© <span id="year"></span> Cardboard Junkies — Starter</small>
+      </footer>
+    </div>
+
+    <script type="module" src="js/app.js"></script>
   </body>
 </html>
