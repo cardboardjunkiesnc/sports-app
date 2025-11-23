@@ -1,51 +1,729 @@
-/* Basic page reset */
-* {
-  box-sizing: border-box;
+/* ===== Sticky Chicago Maroon / Burnt Orange Navbar ===== */
+
+/* Sticky header bar */
+#header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  background: #861F41;           /* Chicago maroon */
+  color: #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+}
+
+/* Inner layout */
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0.6rem 1.25rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+/* Brand / logo text */
+.brand a {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+
+  color: #ffe9d0;
+  text-decoration: none;
+}
+
+.brand a:hover {
+  color: #ff7b2f;                /* brighter burnt orange */
+}
+
+/* Nav container */
+#nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: nowrap;             /* keep nav on one line */
+}
+
+/* Left and right nav sections */
+.nav-left,
+.nav-right {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0.75rem;                  /* spacing between links */
   margin: 0;
   padding: 0;
 }
 
-body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: #0b1020;
-  color: #f5f5f5;
-  min-height: 100vh;
+/* Links */
+.nav-link {
+  display: inline-flex;          /* keeps pill aligned nicely */
+  align-items: center;
+  white-space: nowrap;           /* text stays on one line */
+
+  color: #ffe9d0;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+
+  transition: background 0.2s ease, color 0.2s ease, transform 0.1s ease;
 }
 
-.simple-header {
-  background: #111827;
-  padding: 1.5rem 1rem;
-  border-bottom: 1px solid #1f2937;
+/* Hover / focus */
+.nav-link:hover,
+.nav-link:focus-visible {
+  background: #c64600;           /* burnt orange */
+  color: #ffffff;
+  transform: translateY(-1px);
 }
 
-.container {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 0 1rem;
+/* Optional: make Login look like a button but stay aligned */
+.nav-right .nav-link:last-child {
+  border: 1px solid rgba(255, 233, 208, 0.7);
 }
 
-.simple-title {
-  font-size: 2rem;
-  letter-spacing: 0.06em;
+/* Mobile tweak */
+@media (max-width: 700px) {
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  #nav {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
+/* ===== FIX NAV WRAP — Chicago Maroon + Burnt Orange ===== */
+
+#header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #861F41; /* Chicago maroon */
+  color: #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+}
+/* Top header layout with Login button */
+.simple-header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Login button in the top header */
+.header-login-btn {
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  background: #ffffff;
+  color: #861F41;              /* Chicago maroon */
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.header-login-btn:hover {
+  background: #c64600;          /* burnt orange */
+  color: #ffffff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.18);
+}
+
+/* This keeps everything on ONE LINE */
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;            /* <--- prevents Login wrapping */
+  width: 100%;
+  padding: 0.6rem 1.25rem;
+}
+
+/* Brand text */
+.brand a {
+  font-size: 1.1rem;            /* slightly smaller so links fit */
+  font-weight: 700;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
+  color: #ffe9d0;
+  text-decoration: none;
+  white-space: nowrap;          /* brand won't wrap */
 }
 
-main {
-  padding: 2rem 1rem;
+/* Nav container */
+#nav {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-shrink: 1;               /* allow nav to compress instead of wrapping */
+  white-space: nowrap;          /* FORCE all nav links on same line */
 }
 
-.hero-card {
-  background: #111827;
-  border-radius: 0.75rem;
-  padding: 1.5rem;
-  border: 1px solid #1f2937;
+/* Links */
+.nav-link {
+  color: #ffe9d0;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.nav-link:hover {
+  background: #c64600;          /* burnt orange */
+  color: #ffffff;
+}
+
+/* Make Login look like a button */
+.nav-right .nav-link:last-child {
+  border: 1px solid rgba(255, 233, 208, 0.6);
+}
+/* ===== HOME PAGE ===== */
+
+.home-page {
+  padding: 2.5rem 0;
+}
+
+/* Hero layout */
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1.3fr);
+  gap: 2rem;
+  align-items: stretch;
+  margin-bottom: 3rem;
 }
 
 .hero-title {
-  font-size: 1.5rem;
+  font-size: 2.1rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.hero-subtitle {
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 32rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Buttons */
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.55rem 1.2rem;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.btn.primary {
+  background: #c64600;      /* burnt orange */
+  color: #ffffff;
+}
+
+.btn.secondary {
+  background: transparent;
+  color: #ffe9d0;
+  border-color: rgba(255, 233, 208, 0.7);
+}
+
+/* Right-hand highlight box */
+.hero-highlight {
+  background: rgba(0, 0, 0, 0.12);
+  border-radius: 16px;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.hero-highlight-title {
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+}
+
+.hero-stats {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.hero-stats li {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  padding: 0.4rem 0;
+  border-bottom: 1px dashed rgba(255, 233, 208, 0.2);
+}
+
+.hero-stats li:last-child {
+  border-bottom: none;
+}
+
+.stat-label {
+  opacity: 0.85;
+}
+
+.stat-value {
+  font-weight: 700;
+}
+
+/* Feature cards */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.feature-card {
+  background: rgba(0, 0, 0, 0.06);
+  border-radius: 14px;
+  padding: 1.25rem 1.4rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.feature-card h3 {
+  margin-top: 0;
   margin-bottom: 0.5rem;
 }
 
-.hero-text {
-  color: #d1d5db;
+.feature-card p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Mobile tweaks */
+@media (max-width: 768px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== Cards Grid ===== */
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.card-item {
+  background: #fff;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+  text-align: center;
+}
+
+.card-item img {
+  width: 100%;
+  border-radius: 6px;
+  margin-bottom: 0.75rem;
+}
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+.card-item {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+  text-align: center;
+  font-weight: 600;
+}
+/* ===== Cards Page ===== */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.card-item {
+  background: #fff;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.card-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.18);
+}
+
+.card-item img {
+  width: 100%;
+  border-radius: 6px;
+  margin-bottom: 0.75rem;
+}
+
+/* ===== Details Page ===== */
+.details-wrapper {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.details-image {
+  width: 320px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.18);
+}
+
+.details-info h2 {
+  margin-top: 0;
+  font-size: 1.8rem;
+}
+
+.back-btn {
+  margin-top: 1.5rem;
+  padding: 0.6rem 1.2rem;
+  background: #861F41;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.back-btn:hover {
+  background: #c64600;
+}
+/* ===== PRICING PAGE ===== */
+
+.pricing-page {
+  padding: 2.5rem 0;
+}
+
+.pricing-title {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.pricing-subtitle {
+  max-width: 32rem;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.pricing-hero-note {
+  display: inline-block;
+  padding: 0.5rem 0.85rem;
+  border-radius: 8px;
+  background: rgba(134, 31, 65, 0.08); /* soft maroon tint */
+  border: 1px solid rgba(134, 31, 65, 0.22);
+  font-size: 0.9rem;
+}
+
+/* Table container */
+.pricing-table-section {
+  margin-top: 2rem;
+}
+
+/* Table */
+.pricing-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  background: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.pricing-table thead {
+  background: #861F41; /* Chicago maroon */
+  color: #ffe9d0;
+}
+
+.pricing-table th,
+.pricing-table td {
+  padding: 0.75rem 0.9rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.pricing-table tbody tr:nth-child(even) {
+  background: #faf5f2;
+}
+
+.pricing-table tbody tr:hover {
+  background: #f3e3db;
+}
+/* ===== Cards Page Filters ===== */
+
+.cards-page {
+  padding: 2rem 0;
+}
+
+.cards-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+
+.cards-search {
+  flex: 1 1 180px;
+  max-width: 260px;
+  padding: 0.45rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.18);
+  font-size: 0.95rem;
+}
+
+.cards-year-filter {
+  padding: 0.45rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.18);
+  font-size: 0.95rem;
+  background: #fff;
+}
+
+/* Optional empty state text */
+.cards-empty {
+  font-size: 0.95rem;
+  opacity: 0.8;
+}
+/* ===== SELL PAGE ===== */
+
+.sell-page {
+  padding: 2rem 0;
+}
+
+.sell-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.sell-intro {
+  margin-bottom: 1.5rem;
+  max-width: 36rem;
+  line-height: 1.6;
+}
+
+.sell-form {
+  background: rgba(0, 0, 0, 0.04);
+  border-radius: 14px;
+  padding: 1.5rem 1.75rem;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.sell-form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.sell-form label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9rem;
+  font-weight: 600;
+  gap: 0.35rem;
+}
+
+.sell-form input,
+.sell-form select,
+.sell-form textarea {
+  padding: 0.45rem 0.6rem;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.18);
+  font-size: 0.95rem;
+}
+
+.sell-form input:focus,
+.sell-form select:focus,
+.sell-form textarea:focus {
+  outline: 2px solid #c64600; /* burnt orange */
+  outline-offset: 1px;
+}
+
+.sell-notes-label {
+  grid-column: 1 / -1; /* notes spans full width */
+}
+
+.sell-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.sell-status {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+/* Sell Page */
+.sell-page {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+.sell-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sell-form input {
+  width: 100%;
+  padding: 0.55rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.sell-message {
+  margin-top: 1rem;
+  font-weight: 600;
+}
+/* ===== PRICING PAGE ===== */
+
+.pricing-page {
+  padding: 2.5rem 0;
+}
+
+.page-header h1 {
+  font-size: 2rem;
+  margin-bottom: 0.35rem;
+}
+
+.page-subtitle {
+  font-size: 0.98rem;
+  opacity: 0.9;
+  margin-bottom: 1.75rem;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.pricing-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.pricing-card--highlight {
+  border-color: #c64600; /* burnt orange */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.16);
+}
+
+.pricing-name {
+  margin: 0 0 0.25rem 0;
+  font-size: 1.1rem;
+}
+
+.pricing-price {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin: 0 0 0.25rem 0;
+}
+
+.pricing-tagline {
+  margin: 0 0 0.9rem 0;
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+.pricing-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem 0;
+  font-size: 0.9rem;
+}
+
+.pricing-list li {
+  padding: 0.2rem 0;
+}
+
+.badge {
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  background: #c64600;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+/* ===== GRADING PAGE ===== */
+
+.grading-page {
+  padding: 2rem 0;
+}
+
+.grading-hero h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.grading-intro {
+  max-width: 32rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.grading-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+}
+
+.grading-card {
+  background: rgba(0, 0, 0, 0.06);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.grading-card h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.grading-card p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
 }
